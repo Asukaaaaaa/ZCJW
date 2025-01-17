@@ -1,21 +1,29 @@
-# <img src="public/icons/icon_48.png" width="45" align="left"> Zhh's Cjw
+# Rsbuild Project
 
-My Chrome Extension
+## Setup
 
-## Features
+Install the dependencies:
 
-- Feature 1
-- Feature 2
+```bash
+pnpm install
+```
 
-## Install
+## Get Started
 
-[**Chrome** extension]()
+Start the dev server:
 
-## Contribution
+```bash
+pnpm dev
+```
 
-Suggestions and pull requests are welcomed!.
+Build the app for production:
 
----
+```bash
+pnpm build
+```
 
-This project was bootstrapped with [Chrome Extension CLI](https://github.com/dutiyesh/chrome-extension-cli)
+Preview the production build locally:
 
+```bash
+pnpm preview
+```
