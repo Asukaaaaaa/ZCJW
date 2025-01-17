@@ -1,7 +1,6 @@
 {
   "manifest_version": 3,
   "name": "Zhh's Cjw",
-  "$schema": "https://json.schemastore.org/chrome-manifest.json",
   "version": "0.1.0",
   "description": "My Chrome Extension",
   "icons": {
@@ -11,24 +10,22 @@
     "128": "icons/icon_128.png"
   },
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "static/js/background.js"
   },
   "action": {
     "default_title": "Zhh's Cjw",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "storage"
-  ],
+  "permissions": ["storage"],
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "run_at": "document_idle",
-      "js": [
-        "contentScript.js"
-      ]
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "js": ["static/js/content-script.js"],
+      "world": "ISOLATED"
     }
-  ]
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' http://localhost; object-src 'self';"
+  }
 }

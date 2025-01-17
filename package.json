@@ -1,20 +1,30 @@
 {
-  "name": "zhh's CJW",
-  "version": "0.1.0",
-  "description": "My Chrome Extension",
+  "name": "rsbuild-solid-ts",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
-    "watch": "node ./node_modules/webpack/bin/webpack.js --mode=development --watch --config config/webpack.config.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js --mode=production --config config/webpack.config.js"
+    "build": "rsbuild build",
+    "check": "biome check --write",
+    "dev": "rsbuild dev",
+    "format": "biome format --write",
+    "preview": "rsbuild preview",
+    "watch": "bun onchange -i 'src' 'public' -- bun run build"
+  },
+  "dependencies": {
+    "ace-builds": "^1.37.4",
+    "ajax-hook": "^3.0.3",
+    "axios": "^1.7.9",
+    "solid-js": "^1.9.3",
+    "unocss": "^65.4.0"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^6.4.1",
-    "css-loader": "^6.11.0",
-    "file-loader": "^6.2.0",
-    "mini-css-extract-plugin": "^0.10.1",
-    "size-plugin": "^2.0.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^4.10.0",
-    "webpack-merge": "^5.10.0"
+    "@biomejs/biome": "^1.9.3",
+    "@rsbuild/core": "^1.1.8",
+    "@rsbuild/plugin-babel": "^1.0.3",
+    "@rsbuild/plugin-solid": "^1.0.4",
+    "@types/chrome": "^0.0.296",
+    "chrome-extension-hot-reload": "^0.2.2",
+    "onchange": "^7.1.0",
+    "typescript": "^5.7.2"
   }
 }

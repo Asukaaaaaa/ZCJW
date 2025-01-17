@@ -1,10 +1,17 @@
-# dependencies
-/node_modules
+# Lockfiles
+bun.lockb
+package-lock.json
 
-# production
-/build
-
-# misc
+# Local
 .DS_Store
+*.local
+*.log*
 
-npm-debug.log*
+# Dist
+node_modules
+dist/
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+.idea
