@@ -12,3 +12,8 @@ type $TabItem = {
   active?: boolean;
   enabled?: boolean;
 };
+
+type $Message = {
+  name: 'hello';
+  content: string;
+};

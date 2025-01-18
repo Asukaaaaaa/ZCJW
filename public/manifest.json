@@ -16,12 +16,19 @@
     "default_title": "Zhh's Cjw",
     "default_popup": "popup.html"
   },
-  "permissions": ["storage"],
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": ["<all_urls>"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "run_at": "document_start",
-      "js": ["static/js/content-script.js"],
+      "js": ["static/js/task-listener.js"],
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "run_at": "document_start",
+      "js": ["static/js/task-dispatcher.js"],
       "world": "ISOLATED"
     }
   ],

@@ -11,7 +11,7 @@ const Tabs = (props: {
   onTabChange: (index: number) => void;
 }) => {
   return (
-    <div class="tabs flex flex-grow">
+    <div class="flex flex-grow">
       <For each={props.tabs}>
         {(tab, i) => (
           <div class="tab-buttons">

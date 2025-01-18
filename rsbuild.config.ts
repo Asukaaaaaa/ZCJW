@@ -1,19 +1,20 @@
-import { defineConfig } from "@rsbuild/core";
-import { pluginBabel } from "@rsbuild/plugin-babel";
-import { pluginSolid } from "@rsbuild/plugin-solid";
+import { defineConfig } from '@rsbuild/core';
+import { pluginBabel } from '@rsbuild/plugin-babel';
+import { pluginSolid } from '@rsbuild/plugin-solid';
 
-import PostCSS_Config from "./rsbuild.postcss";
+import PostCSS_Config from './rsbuild.postcss';
 
 export default defineConfig({
   source: {
     entry: {
-      popup: "./src/popup.tsx",
-      background: "./src/background.tsx",
-      "content-script": "./src/content-script.tsx",
+      popup: './src/popup.tsx',
+      background: './src/background.tsx',
+      'task-listener': './src/task-listener.tsx',
+      'task-dispatcher': './src/task-dispatcher.tsx',
     },
   },
   html: {
-    template: "popup.html",
+    template: 'popup.html',
   },
   output: {
     filenameHash: false,
@@ -21,7 +22,7 @@ export default defineConfig({
   },
   performance: {
     chunkSplit: {
-      strategy: "all-in-one",
+      strategy: 'all-in-one',
     },
   },
   plugins: [
