@@ -1,10 +1,12 @@
-import { render } from "solid-js/web";
-import { createEffect, createSignal, For, onCleanup, onMount } from "solid-js";
 import * as Ace from "ace-builds";
-
-import "./popup.css";
-import { createRefContent } from "./utils";
+import { For, createEffect, onCleanup, onMount } from "solid-js";
 import { createStore, produce } from "solid-js/store";
+import { render } from "solid-js/web";
+import { createRefContent } from "./utils";
+import "ace-builds/src-noconflict/ext-language_tools";
+import "ace-builds/src-noconflict/mode-javascript";
+// import "ace-builds/src-noconflict/theme-monokai";
+import "./popup.css";
 
 const Tabs = (props: {
   tabs: $TabItem[];
@@ -40,6 +42,12 @@ const Editor = (props: { ref?: EditorRef }) => {
     editor = Ace.edit(editorEl);
     editor.setTheme("ace/theme/monokai");
     editor.session.setMode("ace/mode/javascript");
+    // 启用自动补全功能
+    editor.setOptions({
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true,
+    });
   });
 
   createRefContent(
@@ -48,7 +56,7 @@ const Editor = (props: { ref?: EditorRef }) => {
       get editor() {
         return editor;
       },
-    })
+    }),
   );
 
   return <div id="editor" class="w-640 h-360" ref={editorEl} />;
@@ -113,8 +121,8 @@ const App = () => {
       produce((tabs) =>
         tabs.forEach((tab, i) => {
           tab.active = i === index;
-        })
-      )
+        }),
+      ),
     );
   }
   function toggleScript(e: Event) {
@@ -123,7 +131,7 @@ const App = () => {
       (tab) => !!tab.active,
       produce((tab) => {
         tab.enabled = !!(e.target as HTMLInputElement)?.checked;
-      })
+      }),
     );
   }
   function onReset() {

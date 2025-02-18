@@ -13,7 +13,7 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single"
+      "quoteStyle": "double"
     }
   },
   "css": {
@@ -27,7 +27,7 @@
       "recommended": true,
       "style": {
         "noNonNullAssertion": "warn",
-        "useConst": "warn"
+        "useConst": { "level": "warn", "fix": "unsafe" }
       },
       "suspicious": {
         "noAssignInExpressions": "warn"
